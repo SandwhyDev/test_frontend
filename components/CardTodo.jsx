@@ -40,7 +40,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
             <Image src={Alert} priority={true} />
             <h1>
               Apakah anda yakin menghapus activity{" "}
-              <span className="font-bold">"{title}"?</span>
+              <span className="font-bold">&quot;{title}&quot;?</span>
             </h1>
 
             <div className="flex gap-4 w-full">
