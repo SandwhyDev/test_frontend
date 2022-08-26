@@ -8,11 +8,11 @@ import Image from "next/image";
 const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
   const [modal, setModal] = useState(false);
 
-  const showDelete = () => {
+  const handleDelete = () => {
     setModal(!modal);
   };
 
-  const handleDelete = (id) => {
+  const showDelete = (id, title) => {
     axios(
       `https://floating-mountain-35184.herokuapp.com/activity-groups/${id}`,
       {
@@ -40,7 +40,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
             <Image src={Alert} priority={true} />
             <h1>
               Apakah anda yakin menghapus activity{" "}
-              <span className="font-bold">"{id}"?</span>
+              <span className="font-bold">"{title}"?</span>
             </h1>
 
             <div className="flex gap-4 w-full">
@@ -55,7 +55,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
               <button
                 className="bg-[#ED4C5C] p-3 w-full rounded-full text-white font-bold"
                 onClick={() => {
-                  handleDelete(id);
+                  showDelete(id);
                 }}
               >
                 Hapus
@@ -72,7 +72,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
         <HiOutlineTrash
           className="text-base cursor-pointer"
           onClick={() => {
-            showDelete(id);
+            handleDelete(id);
           }}
         />
       </div>

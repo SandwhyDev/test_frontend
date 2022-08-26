@@ -41,7 +41,7 @@ const Dashboard = ({ clickAction }) => {
               key={e.id}
               title={e.title}
               date={e.updated_at.split("T")[0].split("-").reverse().join(" ")}
-              id={e.title}
+              id={e.id}
             />
           );
         })}
