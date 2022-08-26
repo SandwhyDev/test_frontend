@@ -39,7 +39,7 @@ const Dashboard = ({ clickAction }) => {
       {data.length === 0 && (
         <div className="flex flex-col gap-5 items-center justify-center font-semibold text-[#555555] mt-20">
           <div className="w-full  ">
-            <Image src={activity1} />
+            <Image src={activity1} priority={true} />
           </div>
           <h1>Buat List Item kamu</h1>
         </div>
