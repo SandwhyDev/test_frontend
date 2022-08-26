@@ -9,7 +9,7 @@ const Modal = ({ title = "Activity berhasil dihapus" }) => {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center bg-black/50 fixed top-0 left-0 px-5 z-50">
       <div className="w-full  rounded-xl text-sm  bg-white shadow-[0_4px_10px_0px_rgba(0,0,0,0.1)] flex items-center justify-center gap-2 p-4 ">
-        <Image src={Sukses} />
+        <Image src={Sukses} priority={true} />
         <h1>{title}</h1>
       </div>
     </div>

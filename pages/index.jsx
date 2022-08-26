@@ -39,10 +39,6 @@ export default function Home() {
             <AddActivity />
           )}
         </div>
-
-        <div className="w-full bg-slate-600 invisible  ">
-          {/* <Image src={activity1} /> */}
-        </div>
       </div>
       {/* wrapper  */}
     </div>

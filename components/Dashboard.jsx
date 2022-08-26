@@ -38,8 +38,10 @@ const Dashboard = ({ clickAction }) => {
         {data.map((e) => {
           return (
             <CardTodo
+              key={e.id}
               title={e.title}
               date={e.updated_at.split("T")[0].split("-").reverse().join(" ")}
+              id={e.id}
             />
           );
         })}
