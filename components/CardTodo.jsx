@@ -12,7 +12,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
     setModal(!modal);
   };
 
-  const showDelete = (id, title) => {
+  const showDelete = (id) => {
     axios(
       `https://floating-mountain-35184.herokuapp.com/activity-groups/${id}`,
       {
