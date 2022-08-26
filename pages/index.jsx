@@ -23,7 +23,10 @@ export default function Home() {
         {!addActivity ? (
           <h1>To Do List App</h1>
         ) : (
-          <div className="flex gap-2 items-center" onClick={handleTambah}>
+          <div
+            className="flex gap-2 items-center cursor-pointer"
+            onClick={handleTambah}
+          >
             <IoIosArrowBack />
             <h1>New Activity</h1>
           </div>
