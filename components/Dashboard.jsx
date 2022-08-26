@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardTodo from "./CardTodo";
+import activity1 from "../assets/activity-empty-state.svg";
+import Image from "next/image";
 
 const Dashboard = ({ clickAction }) => {
   const [data, setData] = useState([]);
@@ -33,6 +35,15 @@ const Dashboard = ({ clickAction }) => {
           <h1>Tambah</h1>
         </div>
       </div>
+
+      {data.length === 0 && (
+        <div className="flex flex-col gap-5 items-center justify-center font-semibold text-[#555555] mt-20">
+          <div className="w-full  ">
+            <Image src={activity1} />
+          </div>
+          <h1>Buat List Item kamu</h1>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-5">
         {data.map((e) => {
