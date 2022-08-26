@@ -8,11 +8,11 @@ import Image from "next/image";
 const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
   const [modal, setModal] = useState(false);
 
-  const handleDelete = () => {
+  const showDelete = () => {
     setModal(!modal);
   };
 
-  const showDelete = (id) => {
+  const handleDelete = (id) => {
     axios(
       `https://floating-mountain-35184.herokuapp.com/activity-groups/${id}`,
       {
@@ -55,7 +55,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
               <button
                 className="bg-[#ED4C5C] p-3 w-full rounded-full text-white font-bold"
                 onClick={() => {
-                  showDelete(id);
+                  handleDelete(id);
                 }}
               >
                 Hapus
@@ -72,7 +72,7 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
         <HiOutlineTrash
           className="text-base cursor-pointer"
           onClick={() => {
-            handleDelete(id);
+            showDelete(id);
           }}
         />
       </div>
