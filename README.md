@@ -2,6 +2,8 @@
 
 ### maaf tidak bisa sampai selesai karena terkendala waktu
 
+#### pengerjaan mobile first
+
 integrasi selesai
 
 - post
