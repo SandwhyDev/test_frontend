@@ -4,15 +4,18 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { Alert, Sukses } from "../assets/assets";
 import Modal from "./Modal";
 import Image from "next/image";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = () => {
     setModal(!modal);
   };
 
   const showDelete = (id) => {
+    setIsLoading(true);
     axios(
       `https://floating-mountain-35184.herokuapp.com/activity-groups/${id}`,
       {
@@ -58,7 +61,11 @@ const CardTodo = ({ title = "Title", date = "5 oktober 2021", id }) => {
                   showDelete(id);
                 }}
               >
-                Hapus
+                {isLoading ? (
+                  <BiLoaderAlt className="text-xl animate-spin text-center w-full " />
+                ) : (
+                  <h1>Hapus</h1>
+                )}
               </button>
             </div>
           </div>

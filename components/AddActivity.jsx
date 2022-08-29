@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TbPencil } from "react-icons/tb";
+import { BiLoaderAlt } from "react-icons/bi";
 import { Todo } from "../assets/assets";
 import Image from "next/image";
 import axios from "axios";
@@ -7,9 +8,11 @@ import Modal from "./Modal";
 
 const AddActivity = ({ clickAction }) => {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const { title } = e.target;
 
@@ -30,6 +33,9 @@ const AddActivity = ({ clickAction }) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   return (
@@ -53,8 +59,16 @@ const AddActivity = ({ clickAction }) => {
         </div>
 
         <button className="xl:w-[159px] w-[120px] xl:h-[44px] h-12 bg-[#16ABF8] rounded-full flex items-center justify-center gap-2 text-white cursor-pointer self-end">
-          <h1 className="xl:text-2xl text-lg font-semibold">+</h1>
-          <h1>Tambah</h1>
+          {isLoading ? (
+            <span className="animate-spin xl:text-xl text-lg font-bold">
+              <BiLoaderAlt />
+            </span>
+          ) : (
+            <div className="flex gap-2 items-center">
+              <h1 className="xl:text-2xl text-lg font-semibold">+</h1>
+              <h1>Tambah</h1>
+            </div>
+          )}
         </button>
       </form>
       <div className="flex flex-col gap-5 items-center justify-center font-semibold text-[#555555] mt-20">
